@@ -9,6 +9,31 @@ This guide will help you migrate from older versions of Astro to the latest vers
 
 Read the guide below for major highlights and instructions on how to handle breaking changes.
 
+## Upcoming Astro 1.0 Release Candidate
+
+We plan to release an Astro v1.0 Release Candidate (RC) sometime in the next several days. This version is not yet available to most users, however you can try it yourself today by running this command:
+
+```
+npm install astro@next--rc
+```
+
+Below are the changes that you should be aware of when migrating to the Astro v1.0 RC.
+
+### Updated: Vite 3
+
+Astro v1.0 RC has upgraded from Vite 2 to [Vite 3](https://vitejs.dev/). We've handled most of the upgrade for you inside of Astro, however some subtle Vite behaviors may still change between versions. Refer to the official [Vite Migration Guide](https://vitejs.dev/guide/migration.html#general-changes) if you run into trouble.
+
+### Deprecated: Astro.canonicalURL
+
+You can now use the new [`Astro.url`](#astrourl) helper to construct your own canonical URL from the current page/request URL.
+
+```js
+// Before:
+const canonicalURL = Astro.canonicalURL;
+// After:
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+```
+
 ## Astro 1.0 Beta
 
 On April 4, 2022 we released the Astro 1.0 Beta! 🎉
